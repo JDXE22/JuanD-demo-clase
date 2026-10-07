@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo de gestion de eventos AddEventListener()</title>
+  </head>
+  <body>
+    <h2>Ejemplo 3</h2>
+    <button id="btnCambiar">Cambiar mensaje</button>
+    <p id="resultado">Mensaje Inicial</p>
+    <script>
+      const boton = document.getElementById("btnCambiar");
+      const resultado = document.getElementById("resultado");
+
+      boton.addEventListener("click", function () {
+        resultado.textContent = "Boton presionado correctamente";
+      });
+    </script>
+  </body>
+</html>
