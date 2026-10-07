@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo de Evento por Teclado 'KeyDown'</title>
+  </head>
+  <body>
+    <h1>Ejemplo Evento de Teclado</h1>
+    <input type="text" id="teclado" placeholder="Presione una tecla" />
+    <p id="resultado">Esperando una tecla...</p>
+  </body>
+  <script>
+    const teclado = document.getElementById("teclado");
+    const resultado = document.getElementById("resultado");
+
+    teclado.addEventListener("keydown", function (event) {
+      resultado.textContent = `Teclado: ${event.key} | Codigo: ${event.code}`;
+    });
+  </script>
+</html>
