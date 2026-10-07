@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo 5 usando addEventListener multiple</title>
+  </head>
+  <body>
+    <div id="tarjeta">
+      <h1>Pasa el mouse por aqui</h1>
+      <p id="resultado">Esperando...</p>
+    </div>
+
+    <script>
+      const tarjeta = document.getElementById("tarjeta");
+      const resultado = document.getElementById("resultado");
+
+      tarjeta.addEventListener("mouseover", function () {
+        resultado.textContent = "El mouse esta sobre la tarjeta";
+      });
+
+      tarjeta.addEventListener("mouseout", function () {
+        resultado.textContent = "El mouse salio de la tareta";
+      });
+    </script>
+  </body>
+</html>
