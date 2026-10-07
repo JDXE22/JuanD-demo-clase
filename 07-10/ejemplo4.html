@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Ejemplo 4 - Gestion Input</h1>
+    <input type="text" id="nombre" placeholder="Digite su nombre" />
+    <p id="textoNombre">Escribr algo</p>
+    <label for="">Selecciona una ciudad</label>
+    <select id="ciudad">
+      <option>--Selecciona</option>
+      <option>Bucaramanga</option>
+      <option>Floridablanca</option>
+      <option>Piedecuesta</option>
+      <option>Giron</option>
+    </select>
+    <p id="textoCiudad">Sin seleccion</p>
+    <script>
+      const nombre = document.getElementById("nombre");
+      // Obtener el parrafo que mostrara el texto escrito en la caja de texto
+      const textoNombre = document.getElementById("textoNombre");
+
+      const textoCiudad = document.getElementById("textoCiudad");
+
+      nombre.addEventListener("input", function () {
+        textoNombre.textContent = nombre.value;
+      });
+
+      const ciudad = document.getElementById("ciudad");
+      ciudad.addEventListener("change", function () {
+        //Mostrar la ciudad en el parrafo 2
+        textoCiudad.textContent = ciudad.value;
+      });
+    </script>
+  </body>
+</html>
