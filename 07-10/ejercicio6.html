@@ -3,19 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejemplo de Propiedades del Evento</title>
+    <title>Ejemplo de Evento Personalizado y Despachado</title>
   </head>
   <body>
-    <button>Haz click</button>
-    <script>
-      const boton = document.querySelector("button");
-      boton.addEventListener("click", (evento) => {
-        console.log(evento.type);
-        const tipo = evento.type;
-        if (tipo === "dblclick") {
-          console.log("Hizo click");
-        }
-      });
-    </script>
+    <div>
+      <h1>Ejemplo CustomEvent y Dispatch</h1>
+      <input type="text" id="nombre" placeholder="nombre" />
+      <select id="rol">
+        <option>Camper</option>
+        <option>Trainer</option>
+        <option>Hunter</option>
+      </select>
+
+      <button id="registrar">Registrar</button>
+      <p id="resultado">Esperando registro</p>
+      <script>
+        //Obtengamos el objeto input
+        const nombre = document.getElementById("nombre");
+        const rol = document.getElementById("rol");
+        const registrar = document.getElementById("registrar");
+        const resultado = document.getElementById("resultado");
+        //Escuchar el evento personalizado del documento
+        document.addEventListener("usuarioRegistrado", function (event) {
+          // Mostrar los datos que tiene el evento personalizado
+          resultado.textContent = `Usuario: ${event.detail.nombre} - Rol: ${event.detail.rol}`;
+        });
+
+        registrar.addEventListener("click", function () {
+          const evento = new CustomEvent("usuarioRegistrado", {
+            detail: {
+              nombre: nombre.value.trim(),
+              rol: rol.value,
+            },
+          });
+
+          //Lanzamos el evento personalizado
+          document.dispatchEvent(evento);
+        });
+      </script>
+    </div>
   </body>
 </html>
