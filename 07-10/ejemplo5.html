@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo de uso setAttribute</title>
+  </head>
+  <body>
+    <button id="changeColorBtn">Cambiar el color de fondo la pagina</button>
+    <script>
+      const button = document.getElementById("changeColorBtn");
+      const changeBackgroundColor = () => {
+        document.body.style.backgroundColor = "#FF0000";
+      };
+
+      const rollBackGroundColor = () => {
+        document.body.style.backgroundColor = "#FFFFFF";
+      };
+
+      button.setAttribute("onclick", "changeBackgroundColor()");
+      button.setAttribute("ondblclick", "rollBackGroundColor()");
+    </script>
+  </body>
+</html>
