@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio Integrador - Custom Event</title>
+    <style>
+      /*Contenedor de miniaturas*/
+      #galeria {
+        display: flex;
+        gap: 8px;
+      }
+
+      #galeria img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      /*Visor de pantalla completa*/
+
+      #visor {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgb(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #visor.activo {
+        display: flex;
+      }
+
+      #visor img {
+        max-height: 80vh;
+      }
+
+      #visor p {
+        color: #fff;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Galeria de Imagenes</h2>
+
+    <div id="galeria">
+      <img src="img/image.jpg" data-index="0" alt="Imagen 1" />
+      <img src="img/image2.jpg" data-index="1" alt="Imagen 2" />
+      <img src="img/image3.jpg" data-index="2" alt="Imagen 3" />
+      <img src="img/imagen4.jpg" data-index="3" alt="Imagen 4" />
+    </div>
+    <!-- Visor: activar un visor al hacer clic en la imagen miniatura -->
+    <div id="visor">
+      <img id="visor-img" alt="Vista ampliada" src="" />
+      <p id="visor-info"></p>
+    </div>
+    <!-- Indicador que se actualiza cuando emite un CustomEvent -->
+    <p>Imagen Activa: <strong id="indicador">-----</strong></p>
+    <script src="galeria.js"></script>
+  </body>
+</html>
